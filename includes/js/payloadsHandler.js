@@ -53,6 +53,7 @@ function Loadpayloads(payload) {
             return;
         }
         user.ip = inputIp;
+        storage.set('PayLoaderIp', inputIp);
     }
     try {
         storage.session.remove('binloader');

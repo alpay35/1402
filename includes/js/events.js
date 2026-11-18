@@ -116,14 +116,25 @@ ui.ps4FwSelect.addEventListener('change', function () {
     if (typeof CheckFW === 'function') CheckFW();
 });
 
+if (ui.ps4IpInput) {
+    ui.ps4IpInput.addEventListener('change', function () {
+        var val = ui.ps4IpInput.value.trim();
+        if (val) {
+            user.ip = val;
+            storage.set('PayLoaderIp', val);
+        }
+    });
+}
+
 // Auto-jailbreak/Auto-jailbreak retry stop button
 ui.stopAutoJbBtn.addEventListener('click', function () {
     clearInterval(autoJbInterval);
+    autoJbInterval = null;
 
     storage.session.set('autoJbRetry', false);
     storage.session.set('autoJb', false);
 
-    toggleVisibility(ui.stopAutoJbBtn.id);
+    toggleVisibility(ui.stopAutoJbBtn.id, false);
     var currentTheme = storage.getString('theme', 'index');
     if (currentTheme === 'compact') {
         ui.clickToStartText.textContent = projectName;
@@ -162,6 +173,7 @@ function chooseFanThreshold() {
 function setAdvancedPayloads(inputState) {
     user.advancedPayloads = inputState;
     storage.set('advancedPayloads', inputState);
+    rememberUserChoices();
     if (inputState) {
         toggleVisibility(ui.advancedPayloadsContainer.id, 1);
         var advancedList = [];
@@ -188,9 +200,12 @@ function loadExploitChain() {
 }
 
 // Saves exploit chain choice to storage and updates user state
-function exploitChain(value) {
+function exploitChain(value, isUserAction) {
     storage.set('exploitChain', value);
     user.exploitChain = parseFloat(value);
+    if (isUserAction) {
+        rememberUserChoices();
+    }
 }
 
 function updateBareboneJB() {
@@ -202,6 +217,7 @@ function updateBareboneJB() {
 function setBareboneJB(checked) {
     storage.set('bareboneJB', checked);
     user.bareboneJB = checked;
+    rememberUserChoices();
 }
 
 function clearStats() {

@@ -136,6 +136,16 @@ function isLocalIP(ip) {
     return /^(127\.|192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.)/.test(ip);
 }
 
+function rememberUserChoices() {
+    storage.set('rememberedDevice', true);
+    if (storage.getString('autoJb', null) === null) {
+        storage.set('autoJb', true);
+    }
+    if (typeof ui !== 'undefined' && ui.autoJb) {
+        ui.autoJb.checked = storage.getBoolean('autoJb', false);
+    }
+}
+
 /**
  * Sets the .hidden class to an element.
  * @param {string} id   - the element ID to hide/show

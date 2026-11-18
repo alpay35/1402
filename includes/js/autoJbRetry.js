@@ -3,6 +3,7 @@
 function setAutoJbRetry(checked) {
     storage.set('autoJbRetry', checked);
     storage.session.set('autoJbRetry', checked);
+    rememberUserChoices();
 
     if (!checked) return;
     if (confirm(window.lang.autoJbRetryConfirm)) jailbreak();
@@ -11,6 +12,7 @@ function setAutoJbRetry(checked) {
 function setAutoJb(checked) {
     storage.set('autoJb', checked);
     storage.session.set('autoJb', checked);
+    storage.set('rememberedDevice', true);
 }
 
 // When jailbreak succeeds, this will be stopped
@@ -28,8 +30,9 @@ function autoJailbreak() {
     var autoJbRetrySessionChecked = storage.session.getBoolean('autoJbRetry', false);
     if (ui.autoJbRetry) ui.autoJbRetry.checked = autoJbRetryChecked;
 
-    // Auto jailbreak logic
-    var autoJbChecked = storage.getBoolean('autoJb', false);
+    // Auto jailbreak logic (enabled automatically once choices are saved on this device)
+    var hasRememberedChoices = storage.getBoolean('rememberedDevice', false);
+    var autoJbChecked = storage.getBoolean('autoJb', hasRememberedChoices);
     var autoJbSessionChecked = storage.session.getBoolean('autoJb', true);
     if (ui.autoJb) ui.autoJb.checked = autoJbChecked;
 
@@ -39,22 +42,22 @@ function autoJailbreak() {
 
     // If auto jb retry is checked and previous jailbreak attempt was unsuccessful, retry jailbreak with a timer
     if (autoJbRetryChecked && autoJbRetrySessionChecked) {
-        autoJailbreakTimer();
-    }
-
-    // If auto jb is checked and autoJb session value is false, execute jailbreak with a timer
-    if (autoJbChecked && autoJbSessionChecked) {
+        autoJailbreakTimer(false);
+    } else if (autoJbChecked && autoJbSessionChecked) {
+        // If auto jb is enabled (or choices were saved on this device), execute jailbreak after 5s countdown
         autoJailbreakTimer(true);
     }
 }
 
-// Storage retry value true but no sessionStorage value? use timer.
+// Storage retry value true or saved device choices: start 5s countdown
 function autoJailbreakTimer(permanentJb) {
-    var timer = 3; // Start a longer countdown immediately
-    if (ui.stopAutoJbBtn) toggleVisibility(ui.stopAutoJbBtn.id);
+    if (autoJbInterval) clearInterval(autoJbInterval);
+    var timer = 5;
+    if (ui.stopAutoJbBtn) toggleVisibility(ui.stopAutoJbBtn.id, true);
     // check if language values are available, if not, use default values
-    var autoJbRetryText = lang.autoJbRetry || "{seconds} saniye icinde yeniden deneniyor...";
-    var autoJbText = lang.autoJb || "Otomatik Jailbreak etkin. {seconds} saniye icinde baslatiliyor...";
+    var langObj = window.lang || {};
+    var autoJbRetryText = langObj.autoJbRetry || "{seconds} saniye icinde yeniden deneniyor...";
+    var autoJbText = langObj.autoJb || "Secimleriniz hatirlandi. {seconds} saniye icinde otomatik devam ediliyor...";
     var message = permanentJb ? autoJbText : autoJbRetryText;
 
     // paste this again so it displays immediately on page load
@@ -64,19 +67,22 @@ function autoJailbreakTimer(permanentJb) {
     }
     autoJbInterval = setInterval(function () {
         timer--;
+        if (timer <= 0) {
+            clearInterval(autoJbInterval);
+            autoJbInterval = null;
+            jailbreak();
+            return;
+        }
         if (ui.clickToStartText) {
             ui.clickToStartText.textContent = message.replace('{seconds}', timer);
             ui.clickToStartText.style.fontSize = "15px";
-        }
-        if (timer < 0) {
-            clearInterval(autoJbInterval);
-            jailbreak();
         }
     }, 1000);
 }
 
 function setReloadAfterJb(checked) {
     storage.set('reloadAfterJb', checked);
+    rememberUserChoices();
 }
 
 function getReloadAfterJb() {

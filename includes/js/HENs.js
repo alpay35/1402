@@ -53,6 +53,7 @@ function setGoldHENVer(value) {
         value = GOLDHEN_DEFAULT;
     }
     storage.set('GHVer', value);
+    rememberUserChoices();
 }
 
 function loadGoldHENVer() {
@@ -87,6 +88,7 @@ function saveJbFlavor(name, value) {
     if (otherHenRadio) otherHenRadio.checked = true;
     user.currentJbFlavor = value;
     chooseHEN();
+    rememberUserChoices();
 }
 
 function loadJbFlavor() {

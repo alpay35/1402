@@ -6,7 +6,20 @@ async function jailbreak() {
   // clear terminal
   ui.consoleElement.textContent = '';
   // stop counter
-  if (autoJbInterval) clearInterval(autoJbInterval);
+  if (autoJbInterval) {
+    clearInterval(autoJbInterval);
+    autoJbInterval = null;
+  }
+
+  // Persist current choices on this device for future visits
+  if (user.currentJbFlavor) storage.set('jailbreakFlavor', user.currentJbFlavor);
+  if (typeof GOLDHEN_DEFAULT !== 'undefined') {
+    storage.set('GHVer', storage.getString('GHVer', GOLDHEN_DEFAULT));
+  }
+  if (user.exploitChain !== null && !isNaN(user.exploitChain)) {
+    storage.set('exploitChain', user.exploitChain);
+  }
+  rememberUserChoices();
 
   // Make it retry until success
   storage.session.set('autoJbRetry', true);

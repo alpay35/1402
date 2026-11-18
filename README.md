@@ -26,6 +26,7 @@
 - **Kernel Exploitleri:** **Lapse**, **Netctrl**, **Relapse** veya **Sleirsgoevy 6.7x** kullanarak yetkileri kernel seviyesine yukseltir.
 - **Payload Yukleyici (Payload Loader):** Basarili kernel exploit sonrasinda payloadlari yukler veya `9020` portu uzerinden gelen payloadlari dinler.
 - **Yalin (Barebone) Jailbreak Deneyimi secenegi:** Exploiti minimum DOM yukuyle calistirir ve tamamlandiginda otomatik olarak ana sayfaya geri yonlendirir.
+- **Secim Hatirlama ve Otomatik Devam:** Ayni cihazda daha once yapilan secimleri hatirlar, acilista 5'ten geriye sayarak sure sonunda otomatik olarak devam eder.
 - **Firmware Tabanli Onbellekleme:** Her seyi cevrimdisi onbellege almak yerine *yalnizca* mevcut firmware surumunuzun ihtiyac duydugu dosyalari onbellege alir.
 
 ### Arayuz ve Ozellestirme
