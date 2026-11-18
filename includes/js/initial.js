@@ -6,7 +6,7 @@ var hideUnsupportedPayloads = false;
 var commonMax = 14.02;                 // max supported paylaods
 
 var user = {
-  currentLanguage: storage.getString('language', 'en'),
+  currentLanguage: storage.getString('language', 'tr'),
   currentJbFlavor: storage.getString('jailbreakFlavor', DEFAULT_HEN),
   platform: "PS4",                                                          // PS4/PC/Mobile etc..
   lastTab: storage.getString('lastTab', 'tools'),

@@ -11,7 +11,7 @@ function setLayout(theme) {
             ui.clickToStartText.innerText = projectName;
         } else {
             ui.initialScreen.classList.remove('compact');
-            ui.clickToStartText.innerText = (window.lang && window.lang.clickToStart) || 'Click to Start';
+            ui.clickToStartText.innerText = (window.lang && window.lang.clickToStart) || 'Baslamak icin tiklayiniz';
         }
     }
 }
@@ -44,7 +44,7 @@ function loadLayout() {
         ui.clickToStartText.textContent = projectName;
     } else {
         ui.initialScreen.classList.remove('compact');
-        ui.clickToStartText.textContent = (window.lang && window.lang.clickToStart) || 'Click to Start';
+        ui.clickToStartText.textContent = (window.lang && window.lang.clickToStart) || 'Baslamak icin tiklayiniz';
     }
     if (radioElement) {
         radioElement.checked = true;

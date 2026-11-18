@@ -53,8 +53,8 @@ function autoJailbreakTimer(permanentJb) {
     var timer = 3; // Start a longer countdown immediately
     if (ui.stopAutoJbBtn) toggleVisibility(ui.stopAutoJbBtn.id);
     // check if language values are available, if not, use default values
-    var autoJbRetryText = lang.autoJbRetry || "Retrying in {seconds} seconds...";
-    var autoJbText = lang.autoJb || "Auto-Jailbreak enabled. Executing in {seconds} seconds...";
+    var autoJbRetryText = lang.autoJbRetry || "{seconds} saniye icinde yeniden deneniyor...";
+    var autoJbText = lang.autoJb || "Otomatik Jailbreak etkin. {seconds} saniye icinde baslatiliyor...";
     var message = permanentJb ? autoJbText : autoJbRetryText;
 
     // paste this again so it displays immediately on page load

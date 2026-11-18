@@ -74,7 +74,7 @@ function CheckFW() {
         }
     } else {
         // --- Non-PS4 browser ---
-        user.platform = 'Unknown platform';
+        user.platform = 'Bilinmeyen platform';
         if (/Android/.test(userAgent)) user.platform = 'Android';
         else if (/iPhone|iPad|iPod/.test(userAgent)) user.platform = 'iOS';
         else if (/Macintosh/.test(userAgent)) user.platform = 'MacOS';

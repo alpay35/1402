@@ -128,12 +128,12 @@ ui.stopAutoJbBtn.addEventListener('click', function () {
     if (currentTheme === 'compact') {
         ui.clickToStartText.textContent = projectName;
     } else {
-        ui.clickToStartText.textContent = (window.lang && window.lang.clickToStart) || 'Click to Start';
+        ui.clickToStartText.textContent = (window.lang && window.lang.clickToStart) || 'Baslamak icin tiklayiniz';
     }
 });
 
 ui.debugConsoleElement.addEventListener('click', function () {
-    ui.consoleElement.innerHTML = '<center>' + (window.lang && window.lang.waitingUserInput) || 'Waiting for user action...' + '</center>';
+    ui.consoleElement.innerHTML = '<center>' + ((window.lang && window.lang.waitingUserInput) || 'Kullanici islemi bekleniyor') + '</center>';
 });
 
 // Update-cache button
@@ -218,11 +218,11 @@ function shutdownServer() {
 
     fetch('/shutdown')
         .then(function () {
-            alert('Server is shutting down. The page will now reload.');
+            alert('Sunucu kapatiliyor. Sayfa simdi yenilenecek.');
             window.location.reload();
         })
         .catch(function () {
-            alert('Server stopped? (connection lost).');
+            alert('Sunucu durduruldu mu? (baglanti kesildi).');
             window.location.reload();
         });
 }

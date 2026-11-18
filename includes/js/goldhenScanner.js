@@ -36,7 +36,7 @@ function guessIp() {
             if (inputIp !== 'localhost' && inputIp !== '127.0.0.1') {
                 findPs4FromBaseIP(inputIp);
             } else {
-                alert("Can't scan for ip since its not provided");
+                alert("IP adresi saglanmadigi icin tarama yapilamiyor");
             }
             return;
         }
@@ -45,8 +45,8 @@ function guessIp() {
 
 function findPs4FromBaseIP(ip) {
     if (ip == 'localhost'){
-        log("Can't scan for ip using localhost (from url)", 'orange');
-        log("Tipp: browse this website using your local ip. Example: 192.168.2.123");
+        log("localhost uzerinden IP taramasi yapilamaz (URL kaynakli)", 'orange');
+        log("Ipucu: Bu siteyi yerel IP adresiniz ile acin. Ornek: 192.168.2.123");
         settingsPopup();
         return;
     }
@@ -105,7 +105,7 @@ function findPs4FromBaseIP(ip) {
                                 ui.ps4IpInput.value = checkIp;
                                 storage.set('ps4Ip', checkIp);
                             }
-                            alert((window.lang ? window.lang.payloadLoaderFound : 'Payload Loader server found at: ') + checkIp);
+                            alert((window.lang ? window.lang.payloadLoaderFound : 'Payload Loader sunucusu bulundu: ') + checkIp);
                             resolve(checkIp);
                             return;
                         }

@@ -25,7 +25,7 @@ async function jailbreak() {
   cleanUp();
 
   payloadPath = storage.session.getString('payload_path', null);
-  log("Loading: " + payloadPath);
+  log("Yukleniyor: " + payloadPath);
 
   // barebone exploit preferred? go to exploit file
   if (user.bareboneJB) {
@@ -44,37 +44,37 @@ async function jailbreak() {
   if (typeof handler === 'function') {
     handler();
   } else {
-    log("Error: Invalid exploit chain selected", "red");
+    log("Hata: Gecersiz exploit zinciri secildi", "red");
   }
 }
 
 async function psfreeLapse() {
   if (user.exploitChain === EXPLOIT_CHAINS.PSFREE_MODULAR) { // modular lapse
     try {
-      log("Loading Al-Azif's PSFree Lapse Modular implementation..");
+      log("Al-Azif'in PSFree Lapse Moduler uygulamasi yukleniyor..");
       await getScript('./src/psfree-lapse/alert.mjs', true, devMode);
     } catch (e) {
-      log("alert.mjs is not defined", "red");
+      log("alert.mjs tanimli degil", "red");
     }
   } else { // bundle lapse
-    log("Loading Feyzee61's PSFree Lapse Bundle implementation..");
+    log("Feyzee61'in PSFree Lapse Paket uygulamasi yukleniyor..");
     try {
       await loadScript('./src/psfree-lapse/bundle.js', false, devMode);
 
       if (typeof doJailBreak === "function") {
         doJailBreak();
       } else {
-        log("Error: doJailBreak is not defined", "red");
+        log("Hata: doJailBreak tanimli degil", "red");
       }
     } catch (e) {
-      log("Failed to load bundle script: " + e.message, "red");
+      log("Paket betigi yuklenemedi: " + e.message, "red");
     }
   }
 }
 
 // Taken from Feyzee61 ps4jb
 async function badHoistJailbreak() {
-  log("Checking Userland Exploit Status...");
+  log("Kullanici Alani (Userland) Exploit Durumu Kontrol Ediliyor...");
   var jailbreakNow = storage.session.getBoolean('jailbreakNow', false);
   if (!jailbreakNow) {
     // set jailbreakNow to true, on reload to load userland exploit
@@ -83,22 +83,22 @@ async function badHoistJailbreak() {
     return;
   }
   if (window.entrypoint672_result < 1) {
-    log("An error occured during Bad Hoist Entrypoint\nReload and try again.", "orange");
+    log("Bad Hoist Giris Noktasi sirasinda bir hata olustu\nSayfayi yenileyip tekrar deneyin.", "orange");
     storage.session.remove('jailbreakNow');
     return;
   } else {
-    log("Bad Hoist Entrypoint succeeded");
+    log("Bad Hoist Giris Noktasi basarili");
   }
 
   if (window.exploitsetup672_result < 1) {
-    log("An error occured during Exploit Setup\nPlease refresh page and run again...", "red");
+    log("Exploit Kurulumu sirasinda bir hata olustu\nLutfen sayfayi yenileyip tekrar calistirin...", "red");
     storage.session.remove('jailbreakNow');
     return;
   } else {
-    log("Exploit Setup complete\n");
+    log("Exploit Kurulumu tamamlandi\n");
   }
 
-  log("Starting Kernel Exploit...");
+  log("Kernel Exploit Baslatiliyor...");
   await sleep(200); // Wait 200ms
 
   await loadScript('./src/badhoist/672kexploit.js', false, devMode);
@@ -111,54 +111,54 @@ async function badHoistJailbreak() {
   let injectionPath = payloadPath;
   if (isElfPayload) {
     elfLoaderAvailable = await probeElfLoader();
-    log("Waiting 600ms");
+    log("600ms bekleniyor");
     sleep(600);
     if (elfLoaderAvailable) {
-      log("elfldr is already running. Skipping elfldr.bin boot.", "green");
+      log("elfldr zaten calisiyor. elfldr.bin baslatma atlaniyor.", "green");
     } else {
-      log("elfldr not running. Booting elfldr.bin first...", "yellow");
+      log("elfldr calismiyor. Once elfldr.bin baslatiliyor...", "yellow");
       injectionPath = './includes/payloads/Bins/elfldr.bin';
     }
   }
 
   if (result === 0 || result === 91 || result === 179) {
     if (result === 179) {
-      log("\nAlready jailbroken, skipping..", "green");
+      log("\nZaten jailbreak yapilmis, atlaniyor..", "green");
     } else {
-      log("\nKernel exploit succeeded", "green");
+      log("\nKernel exploit basarili", "green");
     }
 
     // Inject either the binary payload or elfldr.bin
-    log("Injecting payload: " + injectionPath);
+    log("Payload enjekte ediliyor: " + injectionPath);
     getPayload672(injectionPath);
     await sleep(1000);
 
     if (isElfPayload) {
       if (elfLoaderAvailable) {
-        log("Sending the ELF payload: " + payloadPath, "green");
+        log("ELF payload gonderiliyor: " + payloadPath, "green");
         Loadpayloadlocal(payloadPath, getPayloadName(payloadPath), "jailbreak");
       } else {
-        log("Error: Failed to connect to elfldr on port 9021.", "red");
+        log("Hata: 9021 portundaki elfldr'ye baglanilamadi.", "red");
       }
     }
 
-    log("\nBad Hoist by Fire30, 6.7x Kernel Exploit by Sleirsgoevy");
-    log("Implementation taken from Feyzee61");
+    log("\nFire30 tarafindan Bad Hoist, Sleirsgoevy tarafindan 6.7x Kernel Exploit");
+    log("Uygulama Feyzee61'den alinmistir");
     jailbreakSuccess();
   } else {
-    log("\nAn error occured during Kernel Exploit\nPlease restart console and try again...", "red");
+    log("\nKernel Exploit sirasinda bir hata olustu\nLutfen konsolu yeniden baslatip tekrar deneyin...", "red");
     storage.session.remove('jailbreakNow');
   }
 }
 
 async function cssFontFaceJailbreak() {
-  log("Loading ufm42's CSSFontFace exploit chain implementation..");
+  log("ufm42'nin CSSFontFace exploit zinciri uygulamasi yukleniyor..");
   await getScript('src/cssfontface/main.js', false, devMode);
   doCssFontFaceJailbreak();
 }
 
 async function slopKit() {
-  log("Loading Raw-Game's SlopKit exploit chain implementation..");
+  log("Raw-Game'in SlopKit exploit zinciri uygulamasi yukleniyor..");
   try {
     if (user.exploitChain === EXPLOIT_CHAINS.SLOPKIT_NETCTRL) {
       await getScript("src/slopkit/chain_poops.js", true, devMode);
@@ -171,7 +171,7 @@ async function slopKit() {
 }
 
 async function relapseJailbreak() {
-  log("Loading Raw Game's Relapse exploit chain implementation..");
+  log("Raw Game'in Relapse exploit zinciri uygulamasi yukleniyor..");
   try {
     await getScript("src/relapse/jb.js?v=10", true, devMode);
   } catch (error) {
@@ -180,7 +180,7 @@ async function relapseJailbreak() {
 }
 
 async function slopkitAfterglow() {
-  log("Loading SlopKit Afterglow exploit chain implementation..");
+  log("SlopKit Afterglow exploit zinciri uygulamasi yukleniyor..");
   try {
     await getScript("src/slopkit-afterglow/jb.js", true, devMode);
   } catch (error) {
@@ -189,7 +189,7 @@ async function slopkitAfterglow() {
 }
 
 async function bpfDoubleFree() {
-  log("Loading bpf double free exploit chain implementation..");
+  log("bpf double free exploit zinciri uygulamasi yukleniyor..");
   try {
     await getScript("src/bpf-double-free/main.js", false, devMode);
     loadBpfDoubleFree();
@@ -199,7 +199,7 @@ async function bpfDoubleFree() {
 }
 
 async function wobkot() {
-  log("Loading ufm42's wobkot exploit chain implementation..");
+  log("ufm42'nin wobkot exploit zinciri uygulamasi yukleniyor..");
   try {
     await getScript("src/wobkot/main.js", false, devMode);
   } catch (error) {
@@ -235,7 +235,7 @@ async function loadSettings() {
     updateBareboneJB();
     loadExploitChain();
   } catch (e) {
-    alert("Error in loadSettings: " + e.message);
+    alert("Ayarlar yuklenirken hata olustu: " + e.message);
   }
 }
 

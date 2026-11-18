@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>WebKitty</title>
-    <meta name="description" content="WebKitty is a user-friendly, feature-rich PS4 exploit host for 4.50-5.07 & 6.70 - 14.02." />
+    <meta name="description" content="WebKitty, 4.50-5.07 ve 6.70 - 14.02 surumleri icin kullanici dostu, zengin ozellikli bir PS4 exploit hostudur." />
     <meta name="author" content="ArabPixel">
     <meta name="keywords"
         content="PS4, PlayStation 4, webkit exploit, jailbreak, psfree lapse, cssfontface, WebKitty, PSFree Enhanced, cssfontface, lapse, netctrl, slopkit, relapse">
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="WebKitty">
     <meta property="og:description"
-        content="WebKitty is a user-friendly, feature-rich PS4 exploit host for 4.50-5.07 & 6.70 - 14.02.">
+        content="WebKitty, 4.50-5.07 ve 6.70 - 14.02 surumleri icin kullanici dostu, zengin ozellikli bir PS4 exploit hostudur.">
     <meta property="og:image" content="http://webkitty.arabpixel.net/includes/assets/icons/webkitty.svg">
     <meta property="og:url" content="http://webkitty.arabpixel.net">
 
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="WebKitty">
     <meta name="twitter:description"
-        content="WebKitty is a user-friendly, feature-rich PS4 exploit host for 4.50-5.07 & 6.70 - 14.02.">
+        content="WebKitty, 4.50-5.07 ve 6.70 - 14.02 surumleri icin kullanici dostu, zengin ozellikli bir PS4 exploit hostudur.">
     <meta name="twitter:image" content="http://webkitty.arabpixel.net/includes/assets/icons/webkitty.svg">
     <link rel="icon" href="./includes/assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" id="main-stylesheet" href="">
@@ -50,7 +50,7 @@
         var isLocalServer =  /^(127\.|192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.)/.test(window.location.hostname);
         var isCurrentHTTPS = window.location.protocol === 'https:';
         if (isThisPS4 && goToHttps && !isLocalServer && isCurrentHTTPS){
-            if (confirm("You are currently using HTTPS, which prevents loading payloads through a bin/elf loader servers, switch to http instead? (recommended)")){
+            if (confirm("Su anda HTTPS kullaniyorsunuz, bu durum bin/elf loader sunuculari uzerinden payload yuklemeyi engeller. Bunun yerine HTTP'ye gecilsin mi? (onerilen)")){
                 window.abortLoading = true;
                 window.location.href = "http://webkitty.arabpixel.net";
             } else{
@@ -69,7 +69,7 @@
                 <div>
                     <button onclick="settingsPopup()"
                         class="settings-btn p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                        title="Settings">
+                        title="Ayarlar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-gear" viewBox="0 0 16 16">
                             <path
@@ -80,7 +80,7 @@
                     </button>
                     <button onclick="aboutPopup()"
                         class="about-btn p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                        title="About">
+                        title="Hakkinda">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             viewBox="0 0 512 512">
                             <path
@@ -89,7 +89,7 @@
                     </button>
                     <button onclick="themePopup()"
                         class="theme-btn h-10 p-2 inline-flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                        title="Theme Customization">
+                        title="Ozellestirme">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
@@ -103,7 +103,7 @@
                 </div>
                 <button id="updateCache"
                     class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white">
-                    Update Cache
+                    Onbellegi Guncelle
                 </button>
             </header>
 
@@ -125,7 +125,7 @@
             <button onclick="clearInterval(autoJbInterval);"
                 class="hidden mt-2 bg-red-600 hover:bg-red-700 p-3 rounded font-semibold transition-colors"
                 id="stopAutoJb">
-                Stop Auto Jailbreak
+                Otomatik Jailbreak'i Durdur
             </button>
 
             <!-- Compatibility message -->
@@ -133,13 +133,12 @@
             <a class="hidden secondHostBtn bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center"
                 href="http://webkitty.arabpixel.net/" style="text-decoration: none;">
                 <button
-                    class="bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Load
-                    payloads using a PayLoader - External link</button>
+                    class="bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Payload Loader sunucusu uzerinden payload yukle (HTTP baglantisi)</button>
             </a>
 
             <!-- Jailbreak flavor options -->
             <div id="choosejb-initial" class="bg-gray-800 p-6 rounded-lg shadow-xl text-center">
-                <h3 class="text-xl font-semibold mb-4">Choose your HEN flavor</h3>
+                <h3 class="text-xl font-semibold mb-4">HEN tercihinizi yapiniz</h3>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 rtl:gap-4 sm:rtl:gap-8">
                     <label
                         class="flex items-center px-4 py-2 rounded-lg bg-gray-700/60 hover:bg-gray-700 transition-colors cursor-pointer shadow border-2 border-transparent focus-within:border-blue-500 w-full sm:w-auto mb-2 sm:mb-0"
@@ -158,7 +157,7 @@
                         class="hidden flex items-center px-4 py-2 rounded-lg bg-gray-700/60 hover:bg-gray-700 transition-colors cursor-pointer shadow border-2 border-transparent focus-within:border-blue-500 w-full sm:w-auto">
                         <input type="radio" name="hen" value="nexHEN" onchange="saveJbFlavor(this.name, this.value)"
                             class="accent-blue-500 w-5 h-5 ml-3 focus:ring-2 focus:ring-blue-400">
-                        <span class="text-lg font-semibold text-white/90 select-none">nexHEN<br>Experimental</span>
+                        <span class="text-lg font-semibold text-white/90 select-none">nexHEN<br>Deneysel</span>
                     </label>
                 </div>
             </div>
@@ -178,11 +177,11 @@
                 <!-- Exploit console panel -->
                 <div id="exploit-status-panel" class="gap-4 bg-gray-800 p-6 rounded-lg flex flex-col h-full w-full">
                     <div class="flex justify-between w-auto" style="align-items: baseline;">
-                        <h2 class="text-xl font-semibold mb-4" id="state">Exploit status</h2>
+                        <h2 class="text-xl font-semibold mb-4" id="state">Exploit durumu</h2>
                         <button id="successRate" style="white-space: nowrap;"
                             class="text-base font-semibold duration-300 transform hover:scale-102 hover:border-bottom cursor-pointer"
                             onclick="clearStats()">
-                            Success rate
+                            Basari Orani
                         </button>
                     </div>
                     <div id="DebugConsole"
@@ -232,7 +231,7 @@
                             <header class="flex space-x-3 rtl:space-x-reverse hidden" id="header2">
                                 <button onclick="settingsPopup()"
                                     class="settings-btn p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                                    title="Settings">
+                                    title="Ayarlar">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                                         class="bi bi-gear" viewBox="0 0 16 16">
                                         <path
@@ -243,7 +242,7 @@
                                 </button>
                                 <button onclick="aboutPopup()"
                                     class="about-btn p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                                    title="About">
+                                    title="Hakkinda">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                                         viewBox="0 0 512 512">
                                         <path
@@ -252,7 +251,7 @@
                                 </button>
                                 <button onclick="themePopup()"
                                     class="theme-btn h-10 p-2 inline-flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                                    title="Theme Customization">
+                                    title="Ozellestirme">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -269,7 +268,7 @@
                         <div class="flex items-center flex-col gap-2">
                             <input type="text" id="ps4IpInput"
                                 class="hidden bg-blue-600 hover:bg-blue-700 p-1 rounded font-semibold transition-colors text-white border-transparent text-center"
-                                placeholder="PS4 IP Address">
+                                placeholder="PS4 IP Adresi">
                             <select style="background: transparent;" id="ps4FwSelect"
                                 class="hidden p-1 text-center rounded font-semibold transition-colors text-white">
                                 <option selected hidden>PS4 FW</option>
@@ -344,7 +343,7 @@
                             <li class="flex-1" role="presentation">
                                 <button class="w-full inline-block p-4 border-b-2 rounded-t-lg" id="tools-tab"
                                     data-tabs-target="#tools" type="button" role="tab" aria-controls="tools"
-                                    aria-selected="false">Tools</button>
+                                    aria-selected="false">Araclar</button>
                             </li>
                             <li class="flex-1" role="presentation">
                                 <button class="w-full inline-block p-4 border-b-2 rounded-t-lg" id="homebrew-tab"
@@ -361,13 +360,13 @@
                                 <button
                                     class="w-full inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 hover:text-gray-300"
                                     id="advanced-tab" data-tabs-target="#advanced" type="button" role="tab"
-                                    aria-controls="advanced" aria-selected="false">Advanced</button>
+                                    aria-controls="advanced" aria-selected="false">Gelismis</button>
                             </li>
                             <li class="hidden flex-1" id="customPayloadsTab" role="presentation">
                                 <button
                                     class="w-full inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 hover:text-gray-300"
                                     id="custom-tab" data-tabs-target="#custom" type="button" role="tab"
-                                    aria-controls="custom" aria-selected="false">Custom</button>
+                                    aria-controls="custom" aria-selected="false">Ozel</button>
                             </li>
                         </ul>
                     </div>
@@ -388,7 +387,7 @@
                             </div>
                             <div class="hidden p-4 rounded-lg bg-gray-50 bg-gray-800" id="custom" role="tabpanel"
                                 aria-labelledby="custom-tab">
-                                <p class="text-sm text-white/80 mb-2" id="customPayloadUpload">Upload a custom payload file</p>
+                                <p class="text-sm text-white/80 mb-2" id="customPayloadUpload">Ozel bir payload dosyasi yukleyin</p>
                                 <div class="flex gap-2">
                                     <input type="file" id="customPayloadInput" style="width: 150px;"
                                         class="bg-gray-700 p-2 rounded flex-grow text-white border-transparent focus:ring-2 focus:ring-blue-500"
@@ -411,8 +410,7 @@
                         class="secondHostBtn w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center"
                         href="http://webkitty.arabpixel.net/" style="text-decoration: none;">
                         <button
-                            class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Load
-                            payloads using a payload loader - External link</button>
+                            class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Payload Loader sunucusu uzerinden payload yukle (HTTP baglantisi)</button>
                     </a>
                 </div>
             </div>
@@ -424,14 +422,14 @@
     <div class="fixed inset-0 bg-black/50 z-50 flex backdrop-blur-sm items-center justify-center p-4 hidden"
         id="about-popup-overlay">
         <div id="about-popup" class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h2 class="text-2xl font-bold">About WebKitty</h2>
+            <h2 class="text-2xl font-bold">Hakkinda WebKitty</h2>
             <div class="space-y-2 text-white/80">
-                <p>Version: 2.0</p>
-                <p>A feature rich exploit host to jailbreak your PS4</p>
-                <p>Hosted on GitHub</p>
+                <p>Surum: 2.0</p>
+                <p>PS4'unuzu jailbreak yapmanizi saglayan, zengin ozelliklere sahip bir web arayuzu.</p>
+                <p>GitHub uzerinde barindirilmaktadir</p>
             </div>
             <div id="PS4FWOK" class="mt-4">
-                <h3 class="text-l font-bold mb-4">Supported PS4 firmware</h3>
+                <h3 class="text-l font-bold mb-4">Desteklenen PS4 Firmware surumleri</h3>
                 <div id="listfw" class="grid-cols-4 text-sm text-white/70 mb-4">
                     <p id="fw450-507">4.50-5.07</p>
                     <p id="fw67">6.7x</p>
@@ -446,9 +444,9 @@
                 </div>
             </div>
             <small id="payloaderFirmwareSemiSupported">
-                <i class="text-white/70">* Loading payloads through a Payload Loader server is supported.</i>
+                <i class="text-white/70">* Payload Loader sunucusu uzerinden payload yukleme tum firmware surumlerinde desteklenir.</i>
             </small>
-            <h3 class="text-l font-bold mt-4 mb-2" id="creditsHeader">Credits</h3>
+            <h3 class="text-l font-bold mt-4 mb-2" id="creditsHeader">Emegi Gecenler</h3>
             <div class="flex flex-wrap justify-around text-sm text-white/70 mb-2">
                 <p>abc</p>
                 <p>sleirsgoevy</p>
@@ -473,12 +471,12 @@
                 <p>ArabPixel</p>
                 <p>Dr.Yenyen</p>
                 <p>Teligin174</p>
-                <p>Payloads' devs</p>
+                <p>Payload gelistiricileri</p>
             </div>
 
             <button onclick="aboutPopup()"
                 class="mt-6 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
-                id="close-about">Close</button>
+                id="close-about">Kapat</button>
         </div>
     </div>
 
@@ -487,18 +485,18 @@
         id="settings-popup-overlay">
         <div id="settings-popup"
             class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <h2 class="text-2xl font-bold mb-4">WebKitty settings</h2>
+            <h2 class="text-2xl font-bold mb-4">Ayarlar</h2>
             <!-- Choose GoldHEN version -->
             <div id="chooseGoldHEN" class="mb-4">
-                <h3 class="text-lg font-semibold mb-2" id="ghVer">GoldHEN Versions</h3>
+                <h3 class="text-lg font-semibold mb-2" id="ghVer">GoldHEN Surumleri</h3>
                 <div class="radio-group space-y-2">
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="goldhen" value="GHv2.4b18.14" onchange="setGoldHENVer(this.value);">
                         <p>GoldHEN v2.4b18.14 - </p>
-                        <pre id="latestVer"> Latest</pre>
+                        <pre id="latestVer"> En son</pre>
                     </label>
                     <details>
-                        <summary>Other versions</summary>
+                        <summary>Diger surumler</summary>
                         <label class="flex items-center text-white/80">
                             <input type="radio" name="goldhen" value="GHv2.4b18.13"
                                 onchange="setGoldHENVer(this.value);">
@@ -528,15 +526,15 @@
                 </div>
             </div>
             <div id="chooseExploitChain" class="mb-4">
-                <h3 class="text-lg font-semibold mb-2" id="exploitChainTitle">Exploit Chain</h3>
+                <h3 class="text-lg font-semibold mb-2" id="exploitChainTitle">Exploit Zinciri</h3>
                 <div class="radio-group space-y-2 flex flex-wrap">
                     <label class="flex items-center text-white/80" id="modularLapseExp">
                         <input type="radio" name="exploitChain" value="0" onchange="exploitChain(this.value);">
-                        <p id="modularLapse">PSFree Lapse Modular</p>
+                        <p id="modularLapse">PSFree Lapse moduler</p>
                     </label>
                     <label class="flex items-center text-white/80" id="bundleLapseExp">
                         <input type="radio" name="exploitChain" value="1" onchange="exploitChain(this.value);">
-                        <p id="bundleLapse">PSFree Lapse Bundle</p>
+                        <p id="bundleLapse">PSFree Lapse paket</p>
                     </label>
                     <label class="flex items-center text-white/80" id="badHoistExp">
                         <input type="radio" name="exploitChain" value="2" onchange="exploitChain(this.value);">
@@ -577,53 +575,53 @@
                 </div>
             </div>
             <div id="advancedPayloads" class="mb-6">
-                <h3 class="text-lg font-semibold mb-2" id="optionsHeader">Options</h3>
+                <h3 class="text-lg font-semibold mb-2" id="optionsHeader">Secenekler</h3>
                 <div class="radio-group flex flex-wrap mb-4">
                     <label class="flex items-center text-white/80">
                         <input type="checkbox" id="advancedPayloadsInput" onclick="setAdvancedPayloads(this.checked)">
-                        <p id="showAdvancedPayloads">Show Advanced Payloads</p>
+                        <p id="showAdvancedPayloads">Gelismis payloadlari goster</p>
                     </label>
                 </div>
                 <label id="autoJbOption" class="flex items-center text-white/80">
                     <input type="checkbox" id="autoJb" onclick="setAutoJb(this.checked)">
-                    <p id="autoJbText">Auto Jailbreak</p>
+                    <p id="autoJbText">Otomatik Jailbreak</p>
                 </label>
                 <label id="autoJbContainer" class="flex items-center text-white/80">
                     <input type="checkbox" id="autoJbRetry" onclick="setAutoJbRetry(this.checked)">
-                    <p id="autoJbRetryText">Auto-Retry Jailbreak</p>
+                    <p id="autoJbRetryText">Jailbreak Otomatik Tekrar</p>
                 </label>
                 <label id="reloadAfterJb" class="flex items-center text-white/80">
                     <input type="checkbox" id="reloadAfterJbInput" onclick="setReloadAfterJb(this.checked)">
-                    <p id="reloadAfterJbText">Reload After a successful Jailbreak</p>
+                    <p id="reloadAfterJbText">Basarili bir jailbreakten sonra sayfayi yeniden yukle</p>
                 </label>
                 <label id="bareboneJBOption" class="flex items-center text-white/80">
                     <input type="checkbox" id="bareboneJBInput" onclick="setBareboneJB(this.checked)">
-                    <p id="bareboneJB">Barebone Jailbreak Experience</p>
+                    <p id="bareboneJB">Yalin Jailbreak Deneyimi</p>
                 </label>
             </div>
             <button onclick="ipGuess()"
                 class="hidden bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
                 id="scanPayLoader">
-                Scan for payload loader server
+                Payload Loader sunucusunu tara
             </button>
             <button onclick="shutdownServer()"
                 class="hidden mt-2 bg-red-600 hover:bg-red-700 p-3 rounded font-semibold transition-colors"
                 id="shutdownServerBtn">
-                Shutdown Server
+                Sunucuyu kapat
             </button>
             <button onclick="settingsPopup()"
                 class="mt-6 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
-                id="close-settings">Close</button>
+                id="close-settings">Kapat</button>
         </div>
     </div>
 
     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden"
         id="theme-popup-overlay">
         <div id="theme-popup" class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <h2 class="text-2xl font-bold mb-4">Customization Settings</h2>
+            <h2 class="text-2xl font-bold mb-4">Ozellestirme</h2>
             <!-- Language chooser -->
             <div id="chooselang" class="mb-6">
-                <h3 class="text-lg font-semibold mb-2">Language</h3>
+                <h3 class="text-lg font-semibold mb-2">Dil</h3>
                 <div class="radio-group space-y-2 flex flex-wrap">
                     <!-- Language options -->
                     <label class="flex items-center text-white/80">
@@ -654,7 +652,7 @@
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="language" value="tr" class="ml-2"
                             onchange="saveLanguage(this.value);">
-                        <p>T&uuml;rk&ccedil;e</p>
+                        <p>Turkce</p>
                     </label>
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="language" value="de" class="ml-2"
@@ -669,23 +667,23 @@
                 </div>
             </div>
             <div id="chooseTheme" class="mb-4 flex">
-                <h3 class="text-lg font-semibold mb-2" id="layout">Layout</h3>
+                <h3 class="text-lg font-semibold mb-2" id="layout">Duzen</h3>
                 <div class="radio-group space-y-2 flex flex-wrap flex-row" id="layouts">
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="theme" value="index" onchange="setLayout(this.value);">
-                        <p id="defaultTheme">Default</p>
+                        <p id="defaultTheme">Varsayilan</p>
                     </label>
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="theme" value="compact" onchange="setLayout(this.value);">
-                        <p id="compactTheme">Compact</p>
+                        <p id="compactTheme">Kompakt</p>
                     </label>
                 </div>
                 <!-- Color  -->
-                <h3 class="text-lg font-semibold mb-2" id="themeWord">Theme</h3>
+                <h3 class="text-lg font-semibold mb-2" id="themeWord">Tema</h3>
                 <div class="radio-group space-y-2 flex flex-wrap" id="colors">
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="colorTheme" value="default" onchange="setTheme(this.value);">
-                        <p id="defaultColor">Default</p>
+                        <p id="defaultColor">Varsayilan</p>
                     </label>
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="colorTheme" value="vibrant" onchange="setTheme(this.value);">
@@ -699,19 +697,19 @@
             </div>
             <button onclick="themePopup()"
                 class="mt-6 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
-                id="close-theme">Close</button>
+                id="close-theme">Kapat</button>
         </div>
     </div>
 
     <div class="fixed inset-0 bg-black/50 z-50 flex backdrop-blur-sm items-center justify-center p-4 hidden"
         id="choose-fanThreshold-overlay">
         <div id="choose-fanThreshold" class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h2 class="text-2xl font-bold mb-4">Fan Threshold</h2>
+            <h2 class="text-2xl font-bold mb-4">Fan Esik Degeri</h2>
             <div class="space-y-2 text-white/80">
-                <p>Sets the temperature threshold where the fan will kick into turbo.</p>
+                <p>Fanin turbo moduna gececegi sicakligi belirler.</p>
             </div>
             <div class="mt-6">
-                <h3 class="text-l font-bold mb-4">Select a temperature</h3>
+                <h3 class="text-l font-bold mb-4">Bir sicaklik seciniz</h3>
                 <div class="flex justify-around gap-2 text-sm text-white/70 w-full">
                     <button class="mt-6 hover:bg-blue-700 p-3 rounded font-semibold transition-colors" id="60"
                         onclick="loadFanThreshold(this.id);">60°C</button>
@@ -726,12 +724,12 @@
 
             <div id="defaultTempDiv" class="flex justify-center gap-2 flex-col">
                 <small class="text-center">&#8593;</small>
-                <small class="text-center" id="defaultTemp">Default</small>
+                <small class="text-center" id="defaultTemp">Varsayilan</small>
             </div>
             <button onclick="chooseFanThreshold()"
                 class="mt-4 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
                 id="close-fanChoose">
-                Close</button>
+                Kapat</button>
         </div>
     </div>
 

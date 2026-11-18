@@ -97,7 +97,7 @@ function updateJbStats(attempt, isSuccess, revert) {
         var rate = total > 0 ? ((success / total) * 100).toFixed(0) : '0';
         var displayRate = total > 0 ? rate + '%' : '-';
         ui.successRateText.textContent =
-            (window.lang.successRate || 'Success Rate: ') + displayRate + ' (' + success + '/' + total + ')';
+            (window.lang.successRate || 'Basari Orani: ') + displayRate + ' (' + success + '/' + total + ')';
     }
 }
 
@@ -120,7 +120,7 @@ function jailbreakSuccess(statusMessage) {
     if (typeof ui !== 'undefined' && ui.exploitState) {
         ui.exploitState.textContent = statusMessage
             || (window.lang && window.lang.jailbreakSuccess)
-            || 'Jailbreak successful!';
+            || 'Jailbreak basarili!';
     } else {
         var stateEl = document.getElementById('state');
         if (stateEl && statusMessage) {

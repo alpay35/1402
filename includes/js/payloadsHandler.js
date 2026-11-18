@@ -66,7 +66,7 @@ function Loadpayloads(payload) {
         }
 
     } catch (e) {
-        alert('Failed to load payload: ' + payload.name + ' | Error: ' + e);
+        alert('Payload yuklenemedi: ' + payload.name + ' | Hata: ' + e);
     }
 }
 
@@ -79,14 +79,14 @@ function loadFanThreshold(temperature) {
     };
 
     if (!Object.prototype.hasOwnProperty.call(supportedTemperatures, temperature)) {
-        alert('Invalid fan threshold selection.');
+        alert('Gecersiz fan esik degeri secimi.');
         return;
     }
 
     toggleVisibility(ui.chooseFanThresholdOverlay.id, false);
     Loadpayloads({
         id: 'FanThreshold' + temperature,
-        name: 'Fan Threshold (' + temperature + '°C)',
+        name: 'Fan Esik Degeri (' + temperature + '°C)',
         specificFW: '4.73 - latest',
         src: payloadsPath + 'fan-thresholds/ps4-fan-threshold' + temperature + '.bin'
     });
@@ -127,7 +127,9 @@ function renderPayloads(payloads) {
             payloadCard.className = 'payload payload-card relative group cursor-pointer duration-300 transform hover:scale-102';
             payloadCard.dataset.payloadId = payload.id;
 
-            var specificFwHtml = payload.specificFW ? '<p style="color: orange;">' + payload.specificFW + '</p>' : '';
+            var latestLabel = (window.lang && window.lang.latestVer) ? window.lang.latestVer.toLowerCase() : 'en son';
+            var specificFwText = payload.specificFW ? payload.specificFW.replace(/latest/gi, latestLabel) : '';
+            var specificFwHtml = specificFwText ? '<p style="color: orange;">' + specificFwText + '</p>' : '';
 
             payloadCard.innerHTML =
                 '<button class="w-full payloadContainer">' +
@@ -140,7 +142,7 @@ function renderPayloads(payloads) {
                 '</div>' +
                 '</div>' +
                 '<span class="px-2 py-1 rounded-full text-xs border ' + getPayloadCategoryClass(payload.category) + '">' +
-                payload.category +
+                getPayloadCategoryLabel(payload.category) +
                 '</span>' +
                 '</div>' +
                 '<p class="text-start text-white/70 text-sm leading-relaxed">' + payload.description + '</p>' +
@@ -195,6 +197,17 @@ function getPayloadCategoryClass(category) {
         case 'linux': return 'category-linux';
         case 'advanced': return 'category-advanced';
         default: return '';
+    }
+}
+
+function getPayloadCategoryLabel(category) {
+    var lang = window.lang || {};
+    switch (category) {
+        case 'tools': return lang.payloadsToolsHeader || 'Araclar';
+        case 'homebrew': return lang.payloadsHomebrewHeader || 'Homebrew';
+        case 'linux': return lang.payloadsLinuxHeader || 'Linux';
+        case 'advanced': return lang.advanced || 'Gelismis';
+        default: return category;
     }
 }
 

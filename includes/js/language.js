@@ -59,7 +59,14 @@ function saveLanguage(language) {
     if (!language) return;
     storage.set('language', language);
     user.currentLanguage = language;
-    initLanguage();
+    var p = initLanguage();
+    if (p && typeof p.then === 'function') {
+        p.then(function () {
+            if (typeof switchTab === 'function' && user.lastTab) {
+                switchTab(user.lastTab);
+            }
+        });
+    }
 }
 
 // Update UI language

@@ -44,8 +44,8 @@ function testModeUrl(url) {
 if (devMode && document.body) {
     var testModeBadge = document.createElement('button');
     testModeBadge.type = 'button';
-    testModeBadge.textContent = 'TEST MODE | Exit';
-    testModeBadge.setAttribute('aria-label', 'Testing mode active. Exit testing mode.');
+    testModeBadge.textContent = 'TEST MODU | Cikis';
+    testModeBadge.setAttribute('aria-label', 'Test modu aktif. Test modundan cik.');
     testModeBadge.style.cssText = [
         'position:fixed',
         'top:0',

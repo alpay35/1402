@@ -1,49 +1,49 @@
 <div align="center">
 
-# WebKitty
+# WebKitty (Turkce)
 
 <img src="includes/assets/icons/webkitty.svg" width="220" alt="WebKitty Logo">
 
-**A modular collection of WebKit-based exploit chains for the PlayStation 4.**
+**PlayStation 4 icin moduler, WebKit tabanli exploit zincirleri koleksiyonu.**
 
-*(Formerly known as PSFree Enhanced)*
+*(Eski adiyla PSFree Enhanced - [ArabPixel/WebKitty](https://github.com/ArabPixel/WebKitty) reposunun Turkce forkudur)*
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/ArabPixel/WebKitty)](https://github.com/ArabPixel/WebKitty/issues)
-[![GitHub stars](https://img.shields.io/github/stars/ArabPixel/WebKitty)](https://github.com/ArabPixel/WebKitty/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/alpay35/1402)](https://github.com/alpay35/1402/issues)
+[![GitHub stars](https://img.shields.io/github/stars/alpay35/1402)](https://github.com/alpay35/1402/stargazers)
 
-[Features](#features) • [Firmware Compatibility](#supported-by-this-repository) • [Deployment](#deployment--hosting) • [Screenshots](#screenshots) • [Contributing](#contribution) • [Credits](#credits)
+[Ozellikler](#ozellikler) • [Firmware Uyumlulugu](#bu-depo-tarafindan-desteklenen-surumler) • [Kurulum ve Barindirma](#kurulum-ve-barindirma) • [Ekran Goruntuleri](#ekran-goruntuleri) • [Katkida Bulunma](#katkida-bulunma) • [Emegi Gecenler](#emegi-gecenler)
 
 </div>
 
 ---
 
-## Features
+## Ozellikler
 
-### Core Exploit & Execution
-- **Auto-detection:** Automatically detects console type and firmware version.
-- **WebKit Exploits:** Entry point via the console's web browser using **PSFree**, **Bad Hoist**, **CSSFontFace** or **slopkit**.
-- **Kernel Exploits:** Escalates privileges to kernel level using **Lapse**, **Netctrl**, **Relapse**, or **Sleirsgoevy's 6.7x**.
-- **Payload Loader:** After successful kernel exploitation, payloads or listens for incoming payloads on port `9020`.
-- **Barebone Jailbreak Experience option:** Executes the exploit in a minimal DOM footprint and automatically redirects back to the main page upon completion.
-- **Firmware-Based Caching:** Caches *only* what your specific firmware version requires instead of caching everything offline.
+### Temel Exploit ve Calistirma
+- **Otomatik Algilama:** Konsol turunu ve firmware surumunu otomatik olarak algilar.
+- **WebKit Exploitleri:** Konsolun web tarayicisi uzerinden **PSFree**, **Bad Hoist**, **CSSFontFace** veya **slopkit** kullanarak giris saglar.
+- **Kernel Exploitleri:** **Lapse**, **Netctrl**, **Relapse** veya **Sleirsgoevy 6.7x** kullanarak yetkileri kernel seviyesine yukseltir.
+- **Payload Yukleyici (Payload Loader):** Basarili kernel exploit sonrasinda payloadlari yukler veya `9020` portu uzerinden gelen payloadlari dinler.
+- **Yalin (Barebone) Jailbreak Deneyimi secenegi:** Exploiti minimum DOM yukuyle calistirir ve tamamlandiginda otomatik olarak ana sayfaya geri yonlendirir.
+- **Firmware Tabanli Onbellekleme:** Her seyi cevrimdisi onbellege almak yerine *yalnizca* mevcut firmware surumunuzun ihtiyac duydugu dosyalari onbellege alir.
 
-### Interface & Customization
-- **Themes & Layouts:** Customizable layout modes with independent theme options.
-- **HEN Flavor Selector:** Toggle between **HEN** and **GoldHEN**, with integrated GoldHEN version selection.
-- **Descriptive Payload Selection:** Clear descriptions and unsupported payload loading protection.
-- **Multilingual Support:** Dynamic language switcher.
+### Arayuz ve Ozellestirme
+- **Temalar ve Duzenler:** Bagimsiz tema secenekleriyle ozellestirilebilir yerlesim modlari.
+- **HEN Secici:** Entegre GoldHEN surum secimi ile **HEN** ve **GoldHEN** arasinda gecis yapma imkani.
+- **Aciklayici Payload Secimi:** Net aciklamalar ve desteklenmeyen payload yuklemelerine karsi koruma.
+- **Coklu Dil Destegi:** Dinamik dil degistirici (varsayilan Turkce, Turkce karaktersiz arayuz).
 
-### Advanced Local & Network Features
-Offers expanded functionality when hosted locally on a PC or PS4 using **[PS4-Websrv](https://github.com/ArabPixel/ps4-websrv)**:
-- **Network Scanner:** Ability to scan the local network to find the PS4.
-- **Remote Payload Delivery:** Send the available or custom payloads from any smart device directly to the PS4.
+### Gelismis Yerel ve Ag Ozellikleri
+PC veya PS4 uzerinde **[PS4-Websrv](https://github.com/ArabPixel/ps4-websrv)** ile yerel olarak barindirildiginda genisletilmis islevsellik sunar:
+- **Ag Tarayici:** PS4'u bulmak icin yerel agi tarama ozelligi.
+- **Uzaktan Payload Gonderimi:** Mevcut veya ozel payloadlari herhangi bir akilli cihazdan dogrudan PS4'e gonderme imkani.
 
 ---
 
-## Supported by this Repository
+## Bu Depo Tarafindan Desteklenen Surumler
 
-This table indicates firmware versions for which the *current version* of this repository provides a functional and tested exploit chain.
+Bu tablo, bu deponun *mevcut surumunun* islevsel ve test edilmis bir exploit zinciri sagladigi firmware surumlerini gosterir.
 
 | Userland | Kernel | Firmware |
 | :--- | :---: | :--- |
@@ -52,101 +52,102 @@ This table indicates firmware versions for which the *current version* of this r
 | **PSFree** | Lapse | 7.00 - 9.60 |
 | **CSSFontFace** | Lapse | 7.00 - 11.02 |
 | **CSSFontFace** | Netctrl | 9.00 - 11.02 |
-| **Wobkot (Slopkit)**      | Lapse |   9.00 - 12.02 |
-| **Slopkit**     | Lapse  |  10.00 - 12.02 |
-| **Slopkit**     | Netctrl  |  12.50 - 13.00 |
-| **Slopkit**     | Relapse  |  12.50 - 13.52 |
-| **Slopkit**     | Afterglow  |  14.00 - 14.02 |
-| **Payload Loader** | - | 5.05 - latest |
+| **Wobkot (Slopkit)** | Lapse | 9.00 - 12.02 |
+| **Slopkit** | Lapse | 10.00 - 12.02 |
+| **Slopkit** | Netctrl | 12.50 - 13.00 |
+| **Slopkit** | Relapse | 12.50 - 13.52 |
+| **Slopkit** | Afterglow | 14.00 - 14.02 |
+| **Payload Yukleyici (Loader)** | - | 5.05 - en son |
 
 ---
 
-## Deployment & Hosting
+## Kurulum ve Barindirma
 
-### Option 1: Access via Remote Host
-Open the PS4 web browser and navigate directly http://webkitty.arabpixel.net/
-> In case the above link can not be resolved or similarly, you may want to attempt to use the following mirror of WebKitty: arabpixel.gitlab.io/WebKitty
+### Secenek 1: Uzak Sunucu Uzerinden Erisim
+PS4 web tarayicisini acin ve bu forkun GitHub Pages adresi (etkinse `https://alpay35.github.io/1402/`) veya orijinal sunucu uzerinden erisin:
+`http://webkitty.arabpixel.net/`
+> Orijinal baglantiya erisilemiyorsa su yansiyi da deneyebilirsiniz: `arabpixel.gitlab.io/WebKitty`
 
-### Option 2: Local Hosting (PC / PS4 Server)
-1. Clone the repository:
+### Secenek 2: Yerel Barindirma (PC / PS4 Sunucusu)
+1. Depoyu klonlayin:
    ```bash
-   git clone https://github.com/ArabPixel/WebKitty.git
+   git clone https://github.com/alpay35/1402.git
    ```
-2. Serve the directory using any standard Web server (e.g., Nginx, Apache, Python HTTP server, or **[PS4-Websrv](https://github.com/ArabPixel/ps4-websrv)**).
-3. Open the browser on your PS4, that's it!
+2. Dizini standart herhangi bir web sunucusu ile yayinlayin (ornegin Nginx, Apache, Python HTTP server veya **[PS4-Websrv](https://github.com/ArabPixel/ps4-websrv)**).
+3. PS4 uzerinden tarayiciyi acin, hepsi bu kadar!
 
 ---
 
-## TODO List
-- [ ] Support lower firmwares by adding other exploits
+## Yapilacaklar Listesi
+- [ ] Diger exploitleri ekleyerek daha dusuk firmware surumlerini desteklemek
 
 ---
 
-## Screenshots
+## Ekran Goruntuleri
 
 <details>
-<summary><b>📸 Click here to view Screenshots & Previews</b></summary>
+<summary><b>Ekran Goruntuleri ve Onizlemeleri gormek icin buraya tiklayin</b></summary>
 <br>
 
 <table align="center" style="border: none;">
   <tr>
     <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/default-layout-1.png" width="350" alt="Default Layout: Initial Screen">
+      <img src="includes/assets/showcase/default-layout-1.png" width="350" alt="Varsayilan Duzen: Baslangic Ekrani">
       <br>
-      <b>Default Layout: Initial Screen</b>
+      <b>Varsayilan Duzen: Baslangic Ekrani</b>
     </td>
     <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/default-layout-2.png" width="350" alt="Default Layout: Exploit Screen">
+      <img src="includes/assets/showcase/default-layout-2.png" width="350" alt="Varsayilan Duzen: Exploit Ekrani">
       <br>
-      <b>Default Layout: Exploit Screen</b>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/compact-layout.png" width="350" alt="Compact Layout (Combined)">
-      <br>
-      <b>Compact Layout (Combined)</b>
-    </td>
-    <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/compact-layout-vibrant.png" width="350" alt="Compact Layout (Combined, Vibrant)">
-      <br>
-      <b>Compact Layout (Vibrant)</b>
+      <b>Varsayilan Duzen: Exploit Ekrani</b>
     </td>
   </tr>
   <tr>
     <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/settings-vibrant.png" width="350" alt="Settings">
+      <img src="includes/assets/showcase/compact-layout.png" width="350" alt="Kompakt Duzen (Birlesik)">
       <br>
-      <b>Settings</b>
+      <b>Kompakt Duzen (Birlesik)</b>
     </td>
     <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/about-vibrant.png" width="350" alt="About">
+      <img src="includes/assets/showcase/compact-layout-vibrant.png" width="350" alt="Kompakt Duzen (Birlesik, Vibrant)">
       <br>
-      <b>About</b>
+      <b>Kompakt Duzen (Vibrant)</b>
     </td>
   </tr>
   <tr>
     <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/customization-vibrant.png" width="350" alt="Customization">
+      <img src="includes/assets/showcase/settings-vibrant.png" width="350" alt="Ayarlar">
       <br>
-      <b>Customization</b>
+      <b>Ayarlar</b>
     </td>
     <td align="center" style="border: none;">
-      <img src="includes/assets/showcase/about-catppuccino.png" width="350" alt="About Catppuccino">
+      <img src="includes/assets/showcase/about-vibrant.png" width="350" alt="Hakkinda">
       <br>
-      <b>About Catppuccino</b>
+      <b>Hakkinda</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="border: none;">
+      <img src="includes/assets/showcase/customization-vibrant.png" width="350" alt="Ozellestirme">
+      <br>
+      <b>Ozellestirme</b>
+    </td>
+    <td align="center" style="border: none;">
+      <img src="includes/assets/showcase/about-catppuccino.png" width="350" alt="Hakkinda Catppuccino">
+      <br>
+      <b>Hakkinda (Catppuccino)</b>
     </td>
   </tr>
   <tr>
     <td align="center" style="border: none;">
       <img src="includes/assets/showcase/catppuccino-layout-1.png" width="350" alt="Catppuccino">
       <br>
-      <b>Catppuccino: Initial Screen</b>
+      <b>Catppuccino: Baslangic Ekrani</b>
     </td>
     <td align="center" style="border: none;">
       <img src="includes/assets/showcase/catppuccino-layout-2.png" width="350" alt="Catppuccino">
       <br>
-      <b>Catppuccino: Exploit Screen</b>
+      <b>Catppuccino: Exploit Ekrani</b>
     </td>
   </tr>
 </table>
@@ -155,46 +156,48 @@ Open the PS4 web browser and navigate directly http://webkitty.arabpixel.net/
 
 ---
 
-## Contribution
+## Katkida Bulunma
 
-You can contribute to WebKitty by:
-- Creating pull requests for new translations in the [`languages` folder](includes/js/languages).
-- Modifying, updating, or implementing new host features.
-- Reporting bugs or suggesting enhancements via [issues](https://github.com/ArabPixel/WebKitty/issues/new).
-- In case your PR has edits inside `jailbreak.js` file, do not forget to generate `jailbreak-legacy.js` by typing
-```
-npm install # in case you didn't install them already.
+WebKitty'ye su sekillerde katkida bulunabilirsiniz:
+- [`languages` klasorunde](includes/js/languages) yeni ceviriler icin pull request olusturarak.
+- Mevcut host ozelliklerini duzenleyerek, guncelleyerek veya yeni ozellikler ekleyerek.
+- [Issues](https://github.com/alpay35/1402/issues/new) uzerinden hata bildirerek veya iyilestirme onererek.
+- Pull request'iniz `jailbreak.js` dosyasi icinde degisiklik iceriyorsa, asagidaki komutlari calistirarak `jailbreak-legacy.js` dosyasini yeniden olusturmayi unutmayin:
+```bash
+npm install # daha once kurmadiysaniz
 npm run build
 ```
 
-> **Important:** If your PR includes a new file, don't forget to add it to the respective firmware-based manifest files!
+> **Onemli:** PR'iniz yeni bir dosya iceriyorsa, bunu ilgili firmware tabanli manifest dosyalarina eklemeyi unutmayin!
 
 ---
 
-## Copyright and Authors
+## Telif Hakki ve Gelistiriciler
 
-AGPL-3.0-or-later (see [LICENSE](LICENSE)). Part of this repo belongs to the group `anonymous`. We refer to anonymous contributors as "anonymous" as well.
+AGPL-3.0-or-later (bkz. [LICENSE](LICENSE)). Bu deponun bir kismi `anonymous` grubuna aittir. Anonim katki saglayanlar da "anonymous" olarak anilmaktadir. Orijinal proje: [ArabPixel/WebKitty](https://github.com/ArabPixel/WebKitty).
 
 ---
 
-## Credits in no particular order
-- **abc:** For PSFree userland and Lapse kernel exploits.
-- **Al-Azif:** For the modular (multi-file) PSFree Lapse and AIO workaround implementations.
-- **anonymous:** For PS4 firmware kernel dumps.
-- **Dr.Yenyen:** For intensive multi-firmware testing.
-- **Egycnq:** Porting Netctrl to slopkit.
-- **Feyzee61:** For the PSFree lapse bundle (single file) and 6.7x exploit implementations.
-- **Fire30:** For Bad Hoist userland exploit.
-- **GattoDev:** For the WebKitty logo.
-- **Jordy and Sonic-Iso:** Original Slopkit project.
-- **Nathan Fargo and ufm42:** For CSSFontFace userland exploit.
-- **Payload developers:** For their payloads.
-- **Nazky:** For being the first host I took a peek at.
-- **qwertyoruiopz:** for BPF Double Free
-- **Raw Game:** For implementing a PS4 port for the Slopkit Lapse and Netctrl and also SlopKit Relapse.
-- **sleirsgoevy:** For 6.7x kernel exploit. 
-- **TheFlow:** For Netctrl kernel exploit.
-- **ufm42:** For CSSFontFace Netctrl and Lapse implementation.
-- **m0zz:** For slopkit afterglow source
+## Emegi Gecenler
 
-Check the appropriate files for any **extra** contributors. Unless otherwise stated, everything here can also be credited to us.
+*(Rastgele siralama)*
+- **abc:** PSFree userland ve Lapse kernel exploitleri icin.
+- **Al-Azif:** Moduler (coklu dosya) PSFree Lapse ve AIO gecici cozum uygulamalari icin.
+- **anonymous:** PS4 firmware kernel dokumleri icin.
+- **Dr.Yenyen:** Kapsamli coklu firmware testleri icin.
+- **Egycnq:** Netctrl'i slopkit'e port ettigi icin.
+- **Feyzee61:** PSFree lapse paket (tek dosya) ve 6.7x exploit uygulamalari icin.
+- **Fire30:** Bad Hoist userland exploiti icin.
+- **GattoDev:** WebKitty logosu icin.
+- **Jordy ve Sonic-Iso:** Orijinal Slopkit projesi icin.
+- **Nathan Fargo ve ufm42:** CSSFontFace userland exploiti icin.
+- **Payload gelistiricileri:** Paylasilan tum payloadlar icin.
+- **Nazky:** Ilk incelenen host oldugu icin.
+- **qwertyoruiopz:** BPF Double Free icin.
+- **Raw Game:** Slopkit Lapse, Netctrl ve SlopKit Relapse PS4 portlari icin.
+- **sleirsgoevy:** 6.7x kernel exploiti icin.
+- **TheFlow:** Netctrl kernel exploiti icin.
+- **ufm42:** CSSFontFace Netctrl ve Lapse uygulamalari icin.
+- **m0zz:** Slopkit afterglow kaynagi icin.
+
+Ek katki saglayanlar icin ilgili dosyalari kontrol edebilirsiniz. Aksi belirtilmedikce buradaki tum calismalarin emegi ilgili gelistiricilere aittir.

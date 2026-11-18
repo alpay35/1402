@@ -69,7 +69,7 @@ function sendElfToElfldr(url, payloadName, onDone, args) {
         var ok = (status === 200 || status === 202);
         if (ok) {
             var msg = (window.lang.elfLoaderResponse ||
-                "Payload sent successfully through the Elf Loader!\nStatus: {status} {statusText}\nResponse: {body}")
+                "Payload Elf Loader uzerinden basariyla gonderildi!\nDurum: {status} {statusText}\nYanit: {body}")
                 .replace("{status}", status)
                 .replace("{statusText}", "OK")
                 .replace("{body}", responseText || "");
@@ -240,7 +240,7 @@ function Loadpayloadlocal(PLfile, name, id, needsPayloadLoader, customPort) {
             ps4Ip = (typeof user !== "undefined" && user.ip) ? user.ip : "127.0.0.1";
             ELFLDR = "http://" + ps4Ip + ":9021";
 
-            log(window.lang.elfLoaderStarting || "Starting Elf Loader...");
+            log(window.lang.elfLoaderStarting || "Elf Loader baslatiliyor...");
             sendViaBinLoader("./includes/payloads/Bins/elfldr.elf", function (goldHenSuccess) {
                 if (!goldHenSuccess) {
                     if (!needsPayloadLoader) {
@@ -252,7 +252,7 @@ function Loadpayloadlocal(PLfile, name, id, needsPayloadLoader, customPort) {
 
                 // Wait 5 s for elfldr to boot on port 9021, then retry sending the ELF
                 setTimeout(function () {
-                    log(window.lang.elfLoaderSending || "Sending payload to the Elf Loader...");
+                    log(window.lang.elfLoaderSending || "Payload Elf Loader'a gonderiliyor...");
                     sendElfToElfldr(PLfile, name, function (retrySuccess) {
                         if (!retrySuccess) handleFallback();
                     });

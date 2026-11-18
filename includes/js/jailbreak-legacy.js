@@ -41,7 +41,7 @@ function _jailbreak() {
           }
           cleanUp();
           payloadPath = storage.session.getString('payload_path', null);
-          log("Loading: " + payloadPath);
+          log("Yukleniyor: " + payloadPath);
 
           // barebone exploit preferred? go to exploit file
           if (!user.bareboneJB) {
@@ -62,7 +62,7 @@ function _jailbreak() {
           if (typeof handler === 'function') {
             handler();
           } else {
-            log("Error: Invalid exploit chain selected", "red");
+            log("Hata: Gecersiz exploit zinciri secildi", "red");
           }
         case 3:
           return _context.a(2);
@@ -85,7 +85,7 @@ function _psfreeLapse() {
             break;
           }
           _context2.p = 1;
-          log("Loading Al-Azif's PSFree Lapse Modular implementation..");
+          log("Al-Azif'in PSFree Lapse Moduler uygulamasi yukleniyor..");
           _context2.n = 2;
           return getScript('./src/psfree-lapse/alert.mjs', true, devMode);
         case 2:
@@ -94,13 +94,13 @@ function _psfreeLapse() {
         case 3:
           _context2.p = 3;
           _t = _context2.v;
-          log("alert.mjs is not defined", "red");
+          log("alert.mjs tanimli degil", "red");
         case 4:
           _context2.n = 9;
           break;
         case 5:
           // bundle lapse
-          log("Loading Feyzee61's PSFree Lapse Bundle implementation..");
+          log("Feyzee61'in PSFree Lapse Paket uygulamasi yukleniyor..");
           _context2.p = 6;
           _context2.n = 7;
           return loadScript('./src/psfree-lapse/bundle.js', false, devMode);
@@ -108,14 +108,14 @@ function _psfreeLapse() {
           if (typeof doJailBreak === "function") {
             doJailBreak();
           } else {
-            log("Error: doJailBreak is not defined", "red");
+            log("Hata: doJailBreak tanimli degil", "red");
           }
           _context2.n = 9;
           break;
         case 8:
           _context2.p = 8;
           _t2 = _context2.v;
-          log("Failed to load bundle script: " + _t2.message, "red");
+          log("Paket betigi yuklenemedi: " + _t2.message, "red");
         case 9:
           return _context2.a(2);
       }
@@ -132,7 +132,7 @@ function _badHoistJailbreak() {
     return _regenerator().w(function (_context3) {
       while (1) switch (_context3.n) {
         case 0:
-          log("Checking Userland Exploit Status...");
+          log("Kullanici Alani (Userland) Exploit Durumu Kontrol Ediliyor...");
           jailbreakNow = storage.session.getBoolean('jailbreakNow', false);
           if (jailbreakNow) {
             _context3.n = 1;
@@ -147,23 +147,23 @@ function _badHoistJailbreak() {
             _context3.n = 2;
             break;
           }
-          log("An error occured during Bad Hoist Entrypoint\nReload and try again.", "orange");
+          log("Bad Hoist Giris Noktasi sirasinda bir hata olustu\nSayfayi yenileyip tekrar deneyin.", "orange");
           storage.session.remove('jailbreakNow');
           return _context3.a(2);
         case 2:
-          log("Bad Hoist Entrypoint succeeded");
+          log("Bad Hoist Giris Noktasi basarili");
         case 3:
           if (!(window.exploitsetup672_result < 1)) {
             _context3.n = 4;
             break;
           }
-          log("An error occured during Exploit Setup\nPlease refresh page and run again...", "red");
+          log("Exploit Kurulumu sirasinda bir hata olustu\nLutfen sayfayi yenileyip tekrar calistirin...", "red");
           storage.session.remove('jailbreakNow');
           return _context3.a(2);
         case 4:
-          log("Exploit Setup complete\n");
+          log("Exploit Kurulumu tamamlandi\n");
         case 5:
-          log("Starting Kernel Exploit...");
+          log("Kernel Exploit Baslatiliyor...");
           _context3.n = 6;
           return sleep(200);
         case 6:
@@ -183,12 +183,12 @@ function _badHoistJailbreak() {
           return probeElfLoader();
         case 8:
           elfLoaderAvailable = _context3.v;
-          log("Waiting 600ms");
+          log("600ms bekleniyor");
           sleep(600);
           if (elfLoaderAvailable) {
-            log("elfldr is already running. Skipping elfldr.bin boot.", "green");
+            log("elfldr zaten calisiyor. elfldr.bin baslatma atlaniyor.", "green");
           } else {
-            log("elfldr not running. Booting elfldr.bin first...", "yellow");
+            log("elfldr calismiyor. Once elfldr.bin baslatiliyor...", "yellow");
             injectionPath = './includes/payloads/Bins/elfldr.bin';
           }
         case 9:
@@ -197,32 +197,32 @@ function _badHoistJailbreak() {
             break;
           }
           if (result === 179) {
-            log("\nAlready jailbroken, skipping..", "green");
+            log("\nZaten jailbreak yapilmis, atlaniyor..", "green");
           } else {
-            log("\nKernel exploit succeeded", "green");
+            log("\nKernel exploit basarili", "green");
           }
 
           // Inject either the binary payload or elfldr.bin
-          log("Injecting payload: " + injectionPath);
+          log("Payload enjekte ediliyor: " + injectionPath);
           getPayload672(injectionPath);
           _context3.n = 10;
           return sleep(1000);
         case 10:
           if (isElfPayload) {
             if (elfLoaderAvailable) {
-              log("Sending the ELF payload: " + payloadPath, "green");
+              log("ELF payload gonderiliyor: " + payloadPath, "green");
               Loadpayloadlocal(payloadPath, getPayloadName(payloadPath), "jailbreak");
             } else {
-              log("Error: Failed to connect to elfldr on port 9021.", "red");
+              log("Hata: 9021 portundaki elfldr'ye baglanilamadi.", "red");
             }
           }
-          log("\nBad Hoist by Fire30, 6.7x Kernel Exploit by Sleirsgoevy");
-          log("Implementation taken from Feyzee61");
+          log("\nFire30 tarafindan Bad Hoist, Sleirsgoevy tarafindan 6.7x Kernel Exploit");
+          log("Uygulama Feyzee61'den alinmistir");
           jailbreakSuccess();
           _context3.n = 12;
           break;
         case 11:
-          log("\nAn error occured during Kernel Exploit\nPlease restart console and try again...", "red");
+          log("\nKernel Exploit sirasinda bir hata olustu\nLutfen konsolu yeniden baslatip tekrar deneyin...", "red");
           storage.session.remove('jailbreakNow');
         case 12:
           return _context3.a(2);
@@ -239,7 +239,7 @@ function _cssFontFaceJailbreak() {
     return _regenerator().w(function (_context4) {
       while (1) switch (_context4.n) {
         case 0:
-          log("Loading ufm42's CSSFontFace exploit chain implementation..");
+          log("ufm42'nin CSSFontFace exploit zinciri uygulamasi yukleniyor..");
           _context4.n = 1;
           return getScript('src/cssfontface/main.js', false, devMode);
         case 1:
@@ -260,7 +260,7 @@ function _slopKit() {
     return _regenerator().w(function (_context5) {
       while (1) switch (_context5.p = _context5.n) {
         case 0:
-          log("Loading Raw-Game's SlopKit exploit chain implementation..");
+          log("Raw-Game'in SlopKit exploit zinciri uygulamasi yukleniyor..");
           _context5.p = 1;
           if (!(user.exploitChain === EXPLOIT_CHAINS.SLOPKIT_NETCTRL)) {
             _context5.n = 3;
@@ -297,7 +297,7 @@ function _relapseJailbreak() {
     return _regenerator().w(function (_context6) {
       while (1) switch (_context6.p = _context6.n) {
         case 0:
-          log("Loading Raw Game's Relapse exploit chain implementation..");
+          log("Raw Game'in Relapse exploit zinciri uygulamasi yukleniyor..");
           _context6.p = 1;
           _context6.n = 2;
           return getScript("src/relapse/jb.js?v=10", true, devMode);
@@ -324,7 +324,7 @@ function _slopkitAfterglow() {
     return _regenerator().w(function (_context7) {
       while (1) switch (_context7.p = _context7.n) {
         case 0:
-          log("Loading SlopKit Afterglow exploit chain implementation..");
+          log("SlopKit Afterglow exploit zinciri uygulamasi yukleniyor..");
           _context7.p = 1;
           _context7.n = 2;
           return getScript("src/slopkit-afterglow/jb.js", true, devMode);
@@ -351,7 +351,7 @@ function _bpfDoubleFree() {
     return _regenerator().w(function (_context8) {
       while (1) switch (_context8.p = _context8.n) {
         case 0:
-          log("Loading bpf double free exploit chain implementation..");
+          log("bpf double free exploit zinciri uygulamasi yukleniyor..");
           _context8.p = 1;
           _context8.n = 2;
           return getScript("src/bpf-double-free/main.js", false, devMode);
@@ -379,7 +379,7 @@ function _wobkot() {
     return _regenerator().w(function (_context9) {
       while (1) switch (_context9.p = _context9.n) {
         case 0:
-          log("Loading ufm42's wobkot exploit chain implementation..");
+          log("ufm42'nin wobkot exploit zinciri uygulamasi yukleniyor..");
           _context9.p = 1;
           _context9.n = 2;
           return getScript("src/wobkot/main.js", false, devMode);
@@ -455,7 +455,7 @@ function _loadSettings() {
         case 2:
           _context1.p = 2;
           _t9 = _context1.v;
-          alert("Error in loadSettings: " + _t9.message);
+          alert("Ayarlar yuklenirken hata olustu: " + _t9.message);
         case 3:
           return _context1.a(2);
       }
