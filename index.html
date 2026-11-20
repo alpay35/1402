@@ -16,15 +16,15 @@
     <meta property="og:title" content="WebKitty">
     <meta property="og:description"
         content="WebKitty, 4.50-5.07 ve 6.70 - 14.02 surumleri icin kullanici dostu, zengin ozellikli bir PS4 exploit hostudur.">
-    <meta property="og:image" content="http://webkitty.arabpixel.net/includes/assets/icons/webkitty.svg">
-    <meta property="og:url" content="http://webkitty.arabpixel.net">
+    <meta property="og:image" content="https://1402.web.app/includes/assets/icons/webkitty.svg">
+    <meta property="og:url" content="https://1402.web.app/">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="WebKitty">
     <meta name="twitter:description"
         content="WebKitty, 4.50-5.07 ve 6.70 - 14.02 surumleri icin kullanici dostu, zengin ozellikli bir PS4 exploit hostudur.">
-    <meta name="twitter:image" content="http://webkitty.arabpixel.net/includes/assets/icons/webkitty.svg">
+    <meta name="twitter:image" content="https://1402.web.app/includes/assets/icons/webkitty.svg">
     <link rel="icon" href="./includes/assets/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" id="main-stylesheet" href="">
     <link rel="stylesheet" id="color-stylesheet" href="">
@@ -43,20 +43,6 @@
             document.dir = "rtl";
         else
             document.dir = "ltr";
-
-        // redirect to http request
-        var goToHttps = localStorage.getItem("dontHTTPS") != "1";
-        var isThisPS4 = navigator.userAgent.indexOf("PlayStation 4") !== -1;
-        var isLocalServer =  /^(127\.|192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.)/.test(window.location.hostname);
-        var isCurrentHTTPS = window.location.protocol === 'https:';
-        if (isThisPS4 && goToHttps && !isLocalServer && isCurrentHTTPS){
-            if (confirm("Su anda HTTPS kullaniyorsunuz, bu durum bin/elf loader sunuculari uzerinden payload yuklemeyi engeller. Bunun yerine HTTP'ye gecilsin mi? (onerilen)")){
-                window.abortLoading = true;
-                window.location.href = "http://webkitty.arabpixel.net";
-            } else{
-                localStorage.setItem("dontHTTPS", "1");
-            }
-        }
     </script>
 </head>
 
