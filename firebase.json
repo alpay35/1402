@@ -1,0 +1,33 @@
+{
+  "hosting": {
+    "site": "1402",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/node_modules/**",
+      "README.md",
+      "LICENSE",
+      "package.json",
+      "package-lock.json",
+      "babel.config.json",
+      "CacheMaker.py"
+    ],
+    "headers": [
+      {
+        "source": "**/*.manifest",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/cache-manifest; charset=utf-8"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ]
+  }
+}
