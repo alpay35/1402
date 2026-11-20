@@ -88,4 +88,5 @@ window.lang = {
     "jailbreakSuccess": "Jailbreak basarili!",
     "alreadyJailbroken": "Zaten Jailbreak yapilmis ...",
     "reloadAfterJbText": "Basarili bir jailbreakten sonra sayfayi yeniden yukle",
+    "showSuccessScreenText": "Basarili islem sonrasi mesaj goster",
 }

@@ -88,4 +88,5 @@ window.lang = {
     "jailbreakSuccess": "Jailbreak successful!",
     "alreadyJailbroken": "Already Jailbroken ...",
     "reloadAfterJbText": "Reload after a successful jailbreak",
+    "showSuccessScreenText": "Show message after a successful jailbreak",
 }

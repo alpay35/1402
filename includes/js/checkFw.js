@@ -8,7 +8,7 @@ function CheckFW() {
 
     var elementsToHide = [
         'ps-logo-container', 'choosejb-initial', 'exploit-main-screen', 'scrollDown',
-        'click-to-start-text', 'chooseGoldHEN', 'advancedPayloads', 'chooseExploitChain', 'reloadAfterJb',
+        'click-to-start-text', 'chooseGoldHEN', 'advancedPayloads', 'chooseExploitChain', 'reloadAfterJb', 'showSuccessScreen',
     ];
 
     if (ps4Console) {

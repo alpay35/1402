@@ -91,3 +91,15 @@ function getReloadAfterJb() {
     if (input) input.checked = checked;
     return checked;
 }
+
+function setShowSuccessScreen(checked) {
+    storage.set('showSuccessScreen', checked);
+    rememberUserChoices();
+}
+
+function getShowSuccessScreen() {
+    var checked = getShowSuccessScreenValue();
+    var input = document.getElementById('showSuccessScreenInput');
+    if (input) input.checked = checked;
+    return checked;
+}
