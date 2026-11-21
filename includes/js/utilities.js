@@ -68,10 +68,6 @@ function getReloadAfterJbValue() {
     return storage.getBoolean('reloadAfterJb', false);
 }
 
-function getShowSuccessScreenValue() {
-    return storage.getBoolean('showSuccessScreen', true);
-}
-
 /**
  * Increment jailbreak attempt/success counters in storage and update the UI.
  * @param {boolean} attempt   - true when a new jailbreak attempt starts.
@@ -117,16 +113,8 @@ function jailbreakSuccess(statusMessage) {
 
     updateJbStats(0, 1);
 
-    if (!isBinLoader) {
-        if (getReloadAfterJbValue()) {
-            setTimeout(function () { window.location.href = mainPage; }, 5000);
-        } else if (getShowSuccessScreenValue()) {
-            setTimeout(function () {
-                window.location.href = (typeof testModeUrl === 'function')
-                    ? testModeUrl('./success.html')
-                    : './success.html';
-            }, 3000);
-        }
+    if (getReloadAfterJbValue() && !isBinLoader) {
+        setTimeout(function () { window.location.href = mainPage; }, 5000);
     }
 
     if (typeof ui !== 'undefined' && ui.exploitState) {

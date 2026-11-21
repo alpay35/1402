@@ -1,12 +1,11 @@
 CACHE MANIFEST
 # v2.6
-# Generated on 2026-11-20:17:35
+# Generated on 2026-11-21:13:50
 
 CACHE:
 ../../../
 ../../../index.html
 ../../../exploit.html
-../../../success.html
 ../../../includes/js/HENs.js
 ../../../includes/js/design.js
 ../../../includes/js/autoJbRetry.js

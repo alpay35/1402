@@ -173,7 +173,6 @@ function applyLanguage(lang) {
         updateText(ui.settingsPopup.querySelector('#scanPayLoader'), 'scanPayloadLoader');
         updateText(ui.settingsPopup.querySelector('#shutdownServerBtn'), 'shutdownServerBtn');
         updateText(ui.settingsPopup.querySelector('#reloadAfterJbText'), 'reloadAfterJbText');
-        updateText(ui.settingsPopup.querySelector('#showSuccessScreenText'), 'showSuccessScreenText');
         updateText(document.getElementById('autoJbText'), 'autoJbOption');
     }
 

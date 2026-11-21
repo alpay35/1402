@@ -244,7 +244,6 @@ async function loadSettings() {
     loadLastTab();
     loadGoldHENVer();
     getReloadAfterJb();
-    getShowSuccessScreen();
     autoJailbreak();
     updateBareboneJB();
     loadExploitChain();

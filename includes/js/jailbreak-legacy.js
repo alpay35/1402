@@ -460,7 +460,6 @@ function _loadSettings() {
           loadLastTab();
           loadGoldHENVer();
           getReloadAfterJb();
-          getShowSuccessScreen();
           autoJailbreak();
           updateBareboneJB();
           loadExploitChain();
