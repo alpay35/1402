@@ -59,11 +59,16 @@ function autoJailbreakTimer(permanentJb) {
     var autoJbText = langObj.autoJb || "Secimleriniz hatirlandi. {seconds} saniye icinde otomatik devam ediliyor...";
     var message = permanentJb ? autoJbText : autoJbRetryText;
 
-    // paste this again so it displays immediately on page load
-    if (ui.clickToStartText) {
+    function updateCountdownDisplay() {
+        if (!ui.clickToStartText) return;
         ui.clickToStartText.textContent = message.replace('{seconds}', timer);
-        ui.clickToStartText.style.fontSize = "15px";
+        ui.clickToStartText.style.fontSize = "45px";
+        ui.clickToStartText.style.lineHeight = "1.2";
+        ui.clickToStartText.style.textAlign = "center";
     }
+
+    // paste this again so it displays immediately on page load
+    updateCountdownDisplay();
     autoJbInterval = setInterval(function () {
         timer--;
         if (timer <= 0) {
@@ -72,10 +77,7 @@ function autoJailbreakTimer(permanentJb) {
             jailbreak();
             return;
         }
-        if (ui.clickToStartText) {
-            ui.clickToStartText.textContent = message.replace('{seconds}', timer);
-            ui.clickToStartText.style.fontSize = "15px";
-        }
+        updateCountdownDisplay();
     }, 1000);
 }
 

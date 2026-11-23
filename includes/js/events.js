@@ -135,6 +135,10 @@ ui.stopAutoJbBtn.addEventListener('click', function () {
     storage.session.set('autoJb', false);
 
     toggleVisibility(ui.stopAutoJbBtn.id, false);
+    if (ui.clickToStartText) {
+        ui.clickToStartText.style.fontSize = "";
+        ui.clickToStartText.style.lineHeight = "";
+    }
     var currentTheme = storage.getString('theme', 'index');
     if (currentTheme === 'compact') {
         ui.clickToStartText.textContent = projectName;
