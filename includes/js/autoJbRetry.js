@@ -62,7 +62,7 @@ function autoJailbreakTimer(permanentJb) {
     function updateCountdownDisplay() {
         if (!ui.clickToStartText) return;
         ui.clickToStartText.textContent = message.replace('{seconds}', timer);
-        ui.clickToStartText.style.fontSize = "45px";
+        ui.clickToStartText.style.fontSize = "32px";
         ui.clickToStartText.style.lineHeight = "1.2";
         ui.clickToStartText.style.textAlign = "center";
     }
