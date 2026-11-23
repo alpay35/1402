@@ -30,9 +30,8 @@ function autoJailbreak() {
     var autoJbRetrySessionChecked = storage.session.getBoolean('autoJbRetry', false);
     if (ui.autoJbRetry) ui.autoJbRetry.checked = autoJbRetryChecked;
 
-    // Auto jailbreak logic (enabled automatically once choices are saved on this device)
-    var hasRememberedChoices = storage.getBoolean('rememberedDevice', false);
-    var autoJbChecked = storage.getBoolean('autoJb', hasRememberedChoices);
+    // Auto jailbreak logic (enabled by default; user can opt out in Settings)
+    var autoJbChecked = storage.getBoolean('autoJb', true);
     var autoJbSessionChecked = storage.session.getBoolean('autoJb', true);
     if (ui.autoJb) ui.autoJb.checked = autoJbChecked;
 
